@@ -59,7 +59,7 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 📧 Contact
 For any inquiries or feedback, feel free to contact us at:
 
-Email: support@codeaviary.com
+Email: skidde7@gmail.com
 Website: https://codeaviary.html-5.me
 LinkedIn: CodeAviary LinkedIn
 🔗 Useful Links
