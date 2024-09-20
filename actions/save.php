@@ -2,8 +2,8 @@
 ?>
 <?php
 //session_start();
-require 'includes/header.php';
-require 'includes/config.php';
+require '..\includes/header.php';
+require '..\includes/config.php';
 
 // Check if the user is logged in
 // if (!isset($_SESSION['username']name'])) {
@@ -32,7 +32,7 @@ $result = $stmt->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saved Jobs</title>
-    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="..\css/list.css">
     <style>.job-list {
     display: flex;
     flex-wrap: wrap;
@@ -104,7 +104,7 @@ $result = $stmt->get_result();
                             <p><strong>Company:</strong> <?php echo htmlspecialchars($row['company_name']); ?></p>
                             <p><strong>Salary:</strong> <?php echo htmlspecialchars($row['salary']); ?></p>
                             <p><strong>Vacancy:</strong> <?php echo htmlspecialchars($row['vacancy']); ?></p>
-                            <a href="details.php?id=<?php echo $row['id']; ?>" class="details-button">View Details</a>
+                            <a href="<?php echo APP_URL; ?>actions/details.php?id=<?php echo $row['id']; ?>" class="details-button">View Details</a>
                         </div>
                     </div>
                 <?php endwhile; ?>
@@ -119,5 +119,5 @@ $result = $stmt->get_result();
 <?php
 $stmt->close();
 $conn->close();
-require 'includes/footer.html';
+require '..\includes/footer.html';
 ?>

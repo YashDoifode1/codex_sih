@@ -1,5 +1,6 @@
 <?php
-require "includes/config.php";
+require "..\includes/config.php";
+require "..\includes/header.php";
 
 // Check if the user is logged in
 session_start();
@@ -21,7 +22,7 @@ if (isset($_GET['id'])) {
     $stmt_delete->bind_param("ii", $user_id, $job_id);
     if ($stmt_delete->execute()) {
         // Successful deletion
-        header("Location: recruter.php?id=" . $job_id);
+        header("Location: " . APP_URL . "applications/recruter.php?id=" . $job_id);
         exit();
     } else {
         // Error occurred

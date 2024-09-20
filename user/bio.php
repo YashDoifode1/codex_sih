@@ -1,8 +1,8 @@
 
 
 <?php 
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if user is logged in
 if (isset($_SESSION['username'])) {
@@ -69,7 +69,7 @@ if (isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update bio Information</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="..\css/style.css">
 </head>
 <body>
     <div class="container2">
@@ -99,4 +99,4 @@ if (isset($_SESSION['username'])) {
 </body>
 </html>
 
-<?php require "includes/footer.html" ; ?>
+<?php require "..\includes/footer.html" ; ?>

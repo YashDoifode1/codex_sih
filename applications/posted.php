@@ -1,8 +1,8 @@
 
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -23,12 +23,12 @@ $stmt->close();
 $conn->close();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">s
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posted Jobs</title>
-    <link rel="stylesheet" href="css/posted.css">
+    <link rel="stylesheet" href="..\css/posted.css">
 </head>
 <body>
     <div class="container6">
@@ -50,7 +50,7 @@ $conn->close();
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><img src="jobs/<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image"></td>
+                            <td><img src="..\jobs/<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image"></td>
                             <td><?php echo htmlspecialchars($row['job_title']); ?></td>
                             <td><?php echo htmlspecialchars($row['company_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['description']); ?></td>
@@ -58,7 +58,7 @@ $conn->close();
                             <td><?php echo htmlspecialchars($row['salary']); ?></td>
                             
                             <td><?php echo htmlspecialchars($row['id']); ?></td>
-                            <td><a href="recruter.php?id=<?php echo $row['id']; ?>" class="details-link">View Details</a></td>
+                            <td><a href="<?php echo APP_URL; ?>applications/recruter.php?id=<?php echo $row['id']; ?>" class="details-link">View Details</a></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -70,4 +70,4 @@ $conn->close();
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>

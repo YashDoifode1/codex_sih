@@ -1,7 +1,7 @@
 
 <?php
-include('includes/header.php');
-include('includes/config.php');
+include('..\includes/header.php');
+include('..\includes/config.php');
 
 if (!isset($_SESSION['username'])) {
     header('Location: login.php');
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $company_linkedin = $_POST['company_website_linkedin']; // New field
 
     // Handling the file upload
-    $target_dir = "jobs/";
+    $target_dir = "..\jobs/";
     $company_image = $target_dir . basename($_FILES["company_image"]["name"]);
     move_uploaded_file($_FILES["company_image"]["tmp_name"], $company_image);
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Post Form</title>
-    <link rel="stylesheet" href="css/job.css">
+    <link rel="stylesheet" href="..\css/job.css">
 </head>
 <body>
 
@@ -194,6 +194,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </section>
 
-<?php include('includes/footer.html'); ?>
+<?php include('..\includes/footer.html'); ?>
 </body>
 </html>

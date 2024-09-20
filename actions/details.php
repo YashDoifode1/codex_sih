@@ -1,31 +1,31 @@
-
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
+// Fetch job ID from the GET parameter
 $job_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+// Fetch job details based on job ID
 $sql = "SELECT * FROM jobs WHERE id = $job_id";
 $result = $conn->query($sql);
 
-// SAVED JOBS
-
 // Check if the user is logged in
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['id'])) {
     die("You must be logged in to save a job.");
 }
-//Application 
+
+// Handle form submission (saving job)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['username'];
+    $user_id = $_SESSION['id'];  // Correct session variable for user ID
     $job_id = $_POST['job_id'];
 
     // Insert into saved_job table
     $stmt = $conn->prepare("INSERT INTO saved_job (user_id, job_id) VALUES (?, ?)");
-    $stmt->bind_param("ii", $user_id, $job_id);
+    $stmt->bind_param("ii", $user_id, $job_id);  // Bind user_id and job_id
 
     if ($stmt->execute()) {
-        echo "<script>alert('Saved');</script>";
+        echo "<script>alert('Job saved successfully');</script>";
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -42,7 +42,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details</title>
-    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="..\css/list.css">
 </head>
 <body>
 
@@ -52,7 +52,7 @@ $conn->close();
             <?php $row = $result->fetch_assoc(); ?>
             <div class="job-detail-box">
                 <div class="image-section">
-                    <img src="jobs/<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image">
+                    <img src="<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image">
                 </div>
                 <div class="details-section">
                     <h2><?php echo htmlspecialchars($row['job_title']); ?></h2>
@@ -67,17 +67,17 @@ $conn->close();
                     <p><strong>Education Required:</strong> <?php echo htmlspecialchars($row['education_required']); ?></p>
                     <p><strong>Description:</strong> <?php echo htmlspecialchars($row['description']); ?></p>
                     <div class="buttons">
-                    <!-- Apply Now Form -->
-                    <form action="apply.php" method="post">
-                        <input type="hidden" name="job_id" value="<?php echo $job_id; ?>">
-                        <button type="submit" class="apply-button">Apply Now</button>
-                    </form>
-                    <!-- Save Job Form -->
-                    <form action="details.php?id=<?php echo $job_id; ?>" method="post" class="save-job-form">
-                        <input type="hidden" name="job_id" value="<?php echo $job_id; ?>">
-                        <button type="submit" class="save-button">Save Job</button>
-                    </form>
-                </div>
+                        <!-- Apply Now Form -->
+                        <form action="<?php echo APP_URL; ?>actions/apply.php" method="post">
+                            <input type="hidden" name="job_id" value="<?php echo $job_id; ?>">
+                            <button type="submit" class="apply-button">Apply Now</button>
+                        </form>
+                        <!-- Save Job Form -->
+                        <form action="<?php echo APP_URL; ?>actions/details.php?id=<?php echo $job_id; ?>" method="post" class="save-job-form">
+                            <input type="hidden" name="job_id" value="<?php echo $job_id; ?>">
+                            <button type="submit" class="save-button">Save Job</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         <?php else: ?>
@@ -85,8 +85,7 @@ $conn->close();
         <?php endif; ?>
     </div>
 
-    
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>

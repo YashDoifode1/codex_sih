@@ -1,5 +1,5 @@
 <?php
-require "includes/header.php";
+require "..\includes/header.php";
 // Start session
 //session_start();
 
@@ -153,4 +153,4 @@ mysqli_close($connection); // Close database connection
     </div>
 </body>
 </html>
-<?php require "includes/footer.html" ?>
+<?php require "..\includes/footer.html" ?>

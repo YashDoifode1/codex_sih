@@ -1,8 +1,8 @@
 
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -40,7 +40,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applied Users</title>
-    <link rel="stylesheet" href="css/recruter.css">
+    <link rel="stylesheet" href="..\css/recruter.css">
 </head>
 <body>
     <div class="container7">
@@ -62,7 +62,7 @@ $conn->close();
                         <td><?php echo htmlspecialchars($user['id']); ?></td>
                             <td><?php echo htmlspecialchars($user['username']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
-                            <td><a href="<?php echo htmlspecialchars($user['cv']); ?>" target="_blank">View CV</a></td>
+                            <td><a href="..\<?php echo htmlspecialchars($user['cv']); ?>" target="_blank">View CV</a></td>
                             <td><a href="<?php echo APP_URL; ?>delete.php?id=<?php echo $user['id']; ?>&job_id=<?php echo $job_id; ?>">Delete</a></td>
 
                         </tr>
@@ -76,4 +76,4 @@ $conn->close();
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>
