@@ -2,7 +2,7 @@
 session_start();
 
 // Define the application URL
-define('APP_URL', 'http://localhost/job/job-portal/');
+define('APP_URL', 'http://localhost/job/');
 ?>
 
 <!DOCTYPE html>
