@@ -1,10 +1,13 @@
-<?php
-include('includes/header.php');
-include('includes/config.php');
+<? // Handle form submission and keyword click
+$keyword = '';
 
-// Handle form submission for searching
-if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_GET['search_keyword'])) {
-    $keyword = isset($_POST['search_keyword']) ? $_POST['search_keyword'] : $_GET['search_keyword'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the keyword from the form input or from the clicked keyword
+    if (isset($_POST['search_keyword'])) {
+        $keyword = $_POST['search_keyword'];
+    } elseif (isset($_GET['keyword'])) {
+        $keyword = $_GET['keyword']; // For clicked keyword
+    }
 
     if (!empty($keyword)) {
         // Check if keyword already exists
@@ -27,30 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_GET['search_keyword'])) {
             $stmt->bind_param("s", $keyword);
             $stmt->execute();
         }
-
-        // Now search jobs based on keyword
-        $sql = "SELECT id, job_title, description, vacancy, salary, company_name, company_image FROM jobs WHERE job_title LIKE ? OR company_name LIKE ? OR description LIKE ?";
-        $likeKeyword = "%$keyword%";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $likeKeyword, $likeKeyword, $likeKeyword);
-        $stmt->execute();
-        $jobsResult = $stmt->get_result();
     }
 }
 
+// Fetch jobs based on the searched keyword
+$searchQuery = "SELECT id, job_title, description, vacancy, salary, company_name, company_image FROM jobs WHERE job_title LIKE ? OR company_name LIKE ?";
+$searchKeyword = '%' . $keyword . '%';
+$stmt = $conn->prepare($searchQuery);
+$stmt->bind_param("ss", $searchKeyword, $searchKeyword);
+$stmt->execute();
+$jobResults = $stmt->get_result();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Listings</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body><br><br>
-
-<!-- ------------------------------------------------------------------------------------------------------ -->
 <form method="post" class="search-jobs-form">
     <center>
         <div class="row mb-5">
@@ -98,39 +88,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_GET['search_keyword'])) {
             $trendingResult = $conn->query($trendingQuery);
 
             while ($row = $trendingResult->fetch_assoc()) {
-                echo '<li><a href="?search_keyword=' . urlencode($row['keyword']) . '">' . htmlspecialchars($row['keyword']) . '</a></li>';
+                echo '<li><a href="?keyword=' . urlencode($row['keyword']) . '" class="">' . htmlspecialchars($row['keyword']) . '</a></li>';
             }
             ?>
         </ul>
     </div>
 </div>
-
-<!-- -------------------------------------------------------------------------------------------------- -->
-<div class="job">
-    <h1>We Are Hiring</h1>
-    <div class="job-list">
-        <?php if (isset($jobsResult) && $jobsResult->num_rows > 0): ?>
-            <?php while ($row = $jobsResult->fetch_assoc()): ?>
-                <div class="job-item">
-                    <img src="<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image">
-                    <div class="job-details">
-                        <h2><?php echo htmlspecialchars($row['job_title']); ?></h2>
-                        <p><?php echo htmlspecialchars($row['description']); ?></p>
-                        <p><strong>Company:</strong> <?php echo htmlspecialchars($row['company_name']); ?></p>
-                        <p><strong>Vacancy:</strong> <?php echo htmlspecialchars($row['vacancy']); ?></p>
-                        <p><strong>Salary:</strong> <?php echo htmlspecialchars($row['salary']); ?></p>
-                        <button type="submit" class="apply-button">
-                            <a href="<?php echo APP_URL; ?>actions/details.php?id=<?php echo $row['id']; ?>" class="detail-link">View Details</a>
-                        </button>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>No results found for " <?php echo htmlspecialchars($keyword); ?>"</p>
-        <?php endif; ?>
-    </div>
-</div><br>
-
-<?php include('includes/footer.html'); ?>
-</body>
-</html>

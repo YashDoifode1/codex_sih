@@ -2,7 +2,7 @@
 session_start();
 
 // Define the application URL
-define('APP_URL', 'http://localhost/5/job-portal/');
+define('APP_URL', 'http://localhost/job/job-portal/');
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ define('APP_URL', 'http://localhost/5/job-portal/');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encarta</title>
+    <title>Udaan - job portal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,29 +102,32 @@ define('APP_URL', 'http://localhost/5/job-portal/');
 </head>
 <body>
     <nav class="navbar">
-        <a class="logo" href="#">UniBlend</a>
+        <a class="logo" href="#">Udaan</a>
         <ul class="nav-links">
             <?php if (isset($_SESSION['username'])): ?>
                 <li><a href="<?php echo APP_URL; ?>index.php">Home</a></li>
-                <li><a href="<?php echo APP_URL; ?>posted.php">Applications</a></li>
+                <li><a href="<?php echo APP_URL; ?>applications/posted.php">Applications</a></li>
                 <li><a href="<?php echo APP_URL; ?>resume/index.php">CV-Builder</a></li>
                 <li class="dropdown">
                     <button class="dropbtn">JOB</button>
                     <div class="dropdown-content">
-                        <a href="<?php echo APP_URL; ?>profile.php">Profile</a>
-                        <a href="<?php echo APP_URL; ?>post.php">Hire</a>
-                        <a href="<?php echo APP_URL; ?>saved.php">Saved</a>
-                        <a href="<?php echo APP_URL; ?>applied.php">Applied</a>
+                        <a href="<?php echo APP_URL; ?>profile/profile.php">Profile</a>
+                        <a href="<?php echo APP_URL; ?>profile/post.php">Hire</a>
+                        <a href="<?php echo APP_URL; ?>profile/saved.php">Saved</a>
+                        <a href="<?php echo APP_URL; ?>profile/applied.php">Applied</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <button class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?></button>
                     <div class="dropdown-content">
-                        <a href="<?php echo APP_URL; ?>bio.php">Bio</a>
-                        <a href="<?php echo APP_URL; ?>set.php">Settings</a>
-                        <a href="<?php echo APP_URL; ?>logout.php">Logout</a>
+                        <a href="<?php echo APP_URL; ?>user/bio.php">Bio</a>
+                        <a href="<?php echo APP_URL; ?>user/set.php">Settings</a>
+                        <a href="<?php echo APP_URL; ?>user/logout.php">Logout</a>
                     </div>
                 </li>
+                <?php else: ?>
+                    <li><a href="<?php echo APP_URL; ?>login.php">Login</a></li>
+               
             <?php endif; ?>
         </ul>
     </nav>

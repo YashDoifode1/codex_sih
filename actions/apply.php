@@ -1,7 +1,8 @@
 
 <?php
 session_start();
-require 'includes/config.php';
+require '..\includes/config.php';
+require '..\includes/header.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "<script>alert('Saved');</script>";
-        header('Location: index.php');
+        header("Location: " . APP_URL . "index.php");
     } else {
         echo "Error: " . $stmt->error;
     }

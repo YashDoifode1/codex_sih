@@ -51,7 +51,7 @@ $conn->close();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniBlend Register</title>
-    <link rel="stylesheet" href="includes/login.css" />
+    <link rel="stylesheet" href="style/login.css" />
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
 </head>
 <body>
@@ -72,9 +72,12 @@ $conn->close();
             </div>
             <!-- User Type Heading -->
             <div class="row">
-                <label for="type" class="user-type-label">User Type</label>
+                <i class="fas fa-lock"></i>
+                <input type="text" id="type" name="type" placeholder="Worker / Organisation / Student/" required />
             </div>
-            <div class="row">
+
+            <!-- drope down  -->
+            <!-- <div class="row">
                 <i class="fas fa-user-tag"></i>
                 <select id="type" name="type" required>
                     <option value="">Select Type</option>
@@ -82,7 +85,7 @@ $conn->close();
                     <option value="Organisation">Organisation</option>
                     <option value="Student">Student</option>
                 </select>
-            </div>
+            </div> -->
             <div class="row">
                 <i class="fas fa-image"></i>
                 <input type="file" id="image" name="image" required />

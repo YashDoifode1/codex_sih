@@ -1,8 +1,8 @@
 
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -127,7 +127,7 @@ table tbody tr:hover {
                             <td><?php echo htmlspecialchars($row['vacancy']); ?></td>
                             <td><?php echo htmlspecialchars($row['salary']); ?></td>
                             <td><?php echo htmlspecialchars($row['applied_at']); ?></td>
-                            <td><a href="details.php?id=<?php echo $row['id']; ?>" class="details-link">View Details</a></td>
+                            <td><a href="<?php echo APP_URL; ?>actions/details.php?id=<?php echo $row['id']; ?>" class="details-link">View Details</a></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -139,4 +139,4 @@ table tbody tr:hover {
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>

@@ -2,8 +2,8 @@
 
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -33,7 +33,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Details</title>
-    <link rel="stylesheet" href="css/applicants.css">
+    <link rel="stylesheet" href="..\css/applicants.css">
 </head>
 <body>
     <div class="container6">
@@ -46,7 +46,7 @@ $conn->close();
                     <p><strong>Company:</strong> <?php echo htmlspecialchars($row['company_name']); ?></p>
                     <p><strong>Username:</strong> <?php echo htmlspecialchars($row['username']); ?></p>
                     <p><strong>Email:</strong> <?php echo htmlspecialchars($row['email']); ?></p>
-                    <p><strong>CV:</strong> <a href="cvs/<?php echo htmlspecialchars($row['cv']); ?>" target="_blank">View CV</a></p>
+                    <p><strong>CV:</strong> <a href="..\cvs/<?php echo htmlspecialchars($row['cv']); ?>" target="_blank">View CV</a></p>
                 </div>
             </div>
         <?php else: ?>
@@ -56,4 +56,4 @@ $conn->close();
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>

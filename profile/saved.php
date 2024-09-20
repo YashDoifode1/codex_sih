@@ -1,7 +1,7 @@
 <?php
 //session_start();
-require "includes/header.php";
-require "includes/config.php";
+require "..\includes/header.php";
+require "..\includes/config.php";
 
 // Check if the user is logged in
 if (!isset($_SESSION['id'])) {
@@ -36,8 +36,8 @@ $conn->close();
 }
 
 .container5 {
-    width: 80%;
-    margin: 50px auto;
+    
+    /* margin: 50px auto; */
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ h2 {
             <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="job-item">
                     <div class="image-section">
-                        <img src="jobs/<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image">
+                        <img src="<?php echo htmlspecialchars($row['company_image']); ?>" alt="Company Image" class="company-image">
                     </div>
                     <div class="details-section">
                         <h3><?php echo htmlspecialchars($row['job_title']); ?></h3>
@@ -131,8 +131,8 @@ h2 {
                         <p><strong>Vacancy:</strong> <?php echo htmlspecialchars($row['vacancy']); ?></p>
                         <p><strong>Salary:</strong> <?php echo htmlspecialchars($row['salary']); ?></p>
                         <div class="buttons">
-                            <a href="details.php?id=<?php echo $row['job_id']; ?>" class="details-button">View Details</a>
-                            <a href="sdelete.php?id=<?php echo $row['job_id']; ?>" class="delete-button" onclick="return confirm('Are you sure you want to delete this saved job?');">Delete</a>
+                            <a href="<?php echo APP_URL; ?>details.php?id=<?php echo $row['job_id']; ?>" class="details-button">View Details</a>
+                            <a href="<?php echo APP_URL; ?>actions/sdelete.php?id=<?php echo $row['job_id']; ?>" class="delete-button" onclick="return confirm('Are you sure you want to delete this saved job?');">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -144,4 +144,4 @@ h2 {
 </body>
 </html>
 
-<?php require "includes/footer.html"; ?>
+<?php require "..\includes/footer.html"; ?>
