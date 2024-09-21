@@ -42,8 +42,7 @@ $conn->close();
 } */
 
 .container5 {
-    /* width: 80%; */
-    margin: 50px auto;
+    
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

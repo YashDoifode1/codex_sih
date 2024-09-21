@@ -44,7 +44,7 @@
 
 /* Chatbox header styling */
 .chatbox-header {
-    background-color: #ae1e2c;
+    background-color: #007bff;
     color: white;
     padding: 15px;
     display: flex;
@@ -98,7 +98,7 @@
 }
 
 .chatlogs::-webkit-scrollbar-thumb {
-    background-color: #ec1a4b;
+    background-color: #007bff;
     border-radius: 10px;
     border: 2px solid #f1f1f1;
 }
@@ -128,7 +128,7 @@
 }
 
 .chat-widgets button {
-    background-color: #cf2e41;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -161,7 +161,7 @@
 }
 
 .chat-input button {
-    background-color: #e41a1d;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -185,7 +185,7 @@
 }
 
 .message.user {
-    background-color: #ba1010;
+    background-color: #007bff;
     color: white;
     align-self: flex-end;
 }
@@ -209,7 +209,7 @@
 
 /* User message on the right */
 .message.user {
-    background-color: #cf274b;
+    background-color: #007bff;
     color: white;
     align-self: flex-end;
     text-align: right;

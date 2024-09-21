@@ -2,7 +2,7 @@
 session_start();
 
 // Define the application URL
-define('APP_URL', 'http://localhost/job/');
+define('APP_URL', 'http://localhost/job/job-portal/');
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +21,10 @@ define('APP_URL', 'http://localhost/job/');
         }
 
         .navbar {
-            background-color: black;
+            background-color: #007bff;
             color: #fff;
             display: flex;
-            justify-content: space-between;
+            justify-content: right;
             align-items: center;
             padding: 15px 30px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@ define('APP_URL', 'http://localhost/job/');
         .nav-links {
             list-style: none;
             display: flex;
-            justify-content: center;
+            justify-content: right;
             flex: 2;
             gap: 20px;
             margin: 0;
@@ -98,11 +98,32 @@ define('APP_URL', 'http://localhost/job/');
         .dropdown:hover .dropdown-content {
             display: block;
         }
+        .navbar .logo {
+            display: flex;
+            align-items: left;
+        }
+
+        .navbar .logo img {
+            height: 30px; /* Adjust size */
+            width: auto;
+            margin-left: 10px;
+            transition: transform 0.3s ease; /* Optional animation */
+        }
+
+        .navbar .logo img:hover {
+            transform: scale(1.1); /* Optional hover effect */
+        }
+
+        .navbar .logo:hover {
+            color: #FFD700; /* Optional hover color */
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a class="logo" href="#">Udaan</a>
+<nav class="navbar">
+    <a class="logo" href="#">Udaan
+        <img src="<?php echo APP_URL; ?>logo.png" alt="Udaan Logo">
+    </a>
         <ul class="nav-links">
             <?php if (isset($_SESSION['username'])): ?>
                 <li><a href="<?php echo APP_URL; ?>index.php">Home</a></li>

@@ -1,15 +1,9 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-} */
+
 
 .container6 {
-    /* width: 80%; */
-    /* margin: 50px auto; */
+   
     background-color: #fff;
-    padding: 20px;
+   
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -26,7 +20,7 @@ table {
 }
 
 table thead tr {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     text-align: left;
 }
@@ -53,7 +47,7 @@ table tbody tr:hover {
 .details-link {
     display: inline-block;
     padding: 8px 12px;
-    background-color: #4CAF50;
+    background-color: #ea1313;
     color: white;
     text-decoration: none;
     border-radius: 4px;

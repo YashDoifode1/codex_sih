@@ -1,13 +1,7 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-} */
 
 .container7 {
-    /* width: 80%; */
-    margin: 50px auto;
+   
+    
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,7 +20,7 @@ table {
 }
 
 table thead tr {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     text-align: left;
 }
