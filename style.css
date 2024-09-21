@@ -244,3 +244,138 @@ body {
 .details-button:hover {
     background-color: #0056b3;
 }
+
+/* General Styles */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+/* Job Listing Section */
+.site-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Job Listings */
+.job-listings {
+    list-style: none;
+    padding-left: 0;
+}
+
+.job-listing {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-listing:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Job Listing Logo */
+.job-listing-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Job Listing Details */
+.job-listing-about {
+    display: flex;
+    align-items: center;
+}
+
+.job-listing-position h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+.job-listing-position strong {
+    color: #95a5a6;
+}
+
+.job-listing-location {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.job-listing-meta {
+    font-size: 14px;
+}
+
+.job-listing-meta .badge {
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: #2ecc71;
+}
+
+.badge-danger {
+    background-color: #e74c3c;
+}
+
+/* Job Detail Link */
+.apply-button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+    background-color: #2980b9;
+}
+
+.apply-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.apply-button a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .job-listing-logo img {
+        width: 80px;
+        height: 80px;
+    }
+    .job-listing-about {
+        flex-direction: column;
+    }
+    .job-listing-position {
+        width: 100%;
+        text-align: center;
+    }
+    .job-listing-location, .job-listing-meta {
+        text-align: center;
+        width: 100%;
+    }
+}
