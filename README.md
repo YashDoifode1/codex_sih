@@ -35,9 +35,14 @@ http://localhost/job
 ### 6. You're Ready!
 The Job Portal is now set up on your local server. You can begin exploring its features.
 
+
 ## Notes
 - Ensure that XAMPP is running Apache and MySQL services before accessing the portal.
 - For any issues, feel free to check out the [Issues](https://github.com/YashDoifode1/codex_sih/issues) section or raise a new one.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Hashtags
+#SmartCVBuilder #AIJobPortal #ChatbotCareerAssist #BuildYourFuture #BuildYourFuture #JobMatchAI #InstantCV #CareerChatbot
+#CVOnTheGo #FutureReadyCV #AIResumeBuilder #JobSearchBot #SmartCareerTools #CVAndCareerChat #AIJobAssistant #JobHuntWithAI
